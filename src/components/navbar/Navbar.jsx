@@ -3,6 +3,7 @@ import { MdMenu } from "react-icons/md";
 import { SlEarphones } from "react-icons/sl";
 import { UpdateFollower } from "react-mouse-follower";
 import { motion } from "framer-motion";
+import logo from "../../assets/logo.png";
 
 const Navbar = () => {
   const NavbarMenu = [
@@ -35,9 +36,29 @@ const Navbar = () => {
   return (
     <>
       <div className="bg-brandDark text-white py-8 font-varela">
-        <motion.nav initial={{opacity:0}} animate={{opacity:1}} transition={{duration:1,delay:0.5}} className="container flex justify-between items-center">
+        <motion.nav
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="container flex justify-between items-center"
+        >
           {/* //logo */}
-          <div>
+          <div className="flex items-center gap-4">
+            <UpdateFollower
+              mouseOptions={{
+                backgroundColor: "white",
+                zIndex: 999,
+                followSpeed: 2,
+                scale: 2,
+                mixBlendMode: "hue",
+              }}
+            >
+              <img
+                className="h-14 w-14 hover:rotate-[360deg] duration-1000 border-[1px] rounded-full"
+                src={logo}
+                alt=""
+              />
+            </UpdateFollower>
             <a href="#" className="text-xl font-bold uppercase">
               Playing /{" "}
               <span className="font-extralight text-white/70">Market</span>
