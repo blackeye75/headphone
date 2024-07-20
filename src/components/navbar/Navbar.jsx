@@ -35,7 +35,7 @@ const Navbar = () => {
   ];
   return (
     <>
-      <div className="bg-brandDark text-white py-8 font-varela">
+      <div className="bg-brandDark text-white py-6 font-varela">
         <motion.nav
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

@@ -3,6 +3,8 @@ import Headphone1 from "../../assets/headphone.png";
 import Headphone2 from "../../assets/headphone2.png";
 import Headphone3 from "../../assets/headphone3.png";
 import { FaWhatsapp } from "react-icons/fa";
+import { UpdateFollower } from "react-mouse-follower";
+import {motion} from "framer-motion"
 
 const data = [
   {
@@ -39,6 +41,9 @@ const data = [
 
 const Hero = () => {
   const [activeData, setActiveData] = useState(data[0]);
+  const handleActiveData = (data) => {
+    setActiveData(data);
+  };
   return (
     <section className="bg-brandDark text-white font-varela">
       <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[700px]">
@@ -67,7 +72,7 @@ const Hero = () => {
             <div className="grid grid-cols-3 gap-10">
               {data.map((item) => {
                 return (
-                  <div className="grid grid-cols-2 place-items-center cursor-pointer">
+                  <div key={item.id} onClick={()=>handleActiveData(item)} className="grid grid-cols-2 place-items-center cursor-pointer">
                     <div>
                       <img src={item.image} alt="" className="w-[200px]" />
                     </div>
@@ -86,7 +91,7 @@ const Hero = () => {
         {/* Hero image */}
         <div className="flex flex-col justify-end items-center">
           <img
-            className="w-[300px] md:w-[400px] xl:w-[500px]"
+            className="w-[300px] md:w-[400px] xl:w-[550px]"
             src={activeData.image}
             alt=""
           />
