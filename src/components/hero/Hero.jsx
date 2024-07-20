@@ -80,14 +80,16 @@ const Hero = () => {
         <div className="flex flex-col justify-center py-14 md:py-0 xl:max-w-[500px] ">
           <div className="space-y-5 text-center md:text-left">
             <AnimatePresence mode="wait">
-              <UpdateFollower mouseOptions={{
-                backgroundColor:"white",
-                zIndex:9999,
-                followSpeed:0.5,
-                rotate:-720,
-                mixBlendMode:"difference",
-                scale:10
-              }} >
+              <UpdateFollower
+                mouseOptions={{
+                  backgroundColor: "white",
+                  zIndex: 9999,
+                  followSpeed: 0.5,
+                  rotate: -720,
+                  mixBlendMode: "difference",
+                  scale: 10,
+                }}
+              >
                 <motion.h1
                   key={activeData.id}
                   className="text-3xl lg:text-6xl font-bold font-varela"
@@ -100,15 +102,42 @@ const Hero = () => {
                 </motion.h1>
               </UpdateFollower>
             </AnimatePresence>
-            <motion.p  className="text-sm leading-loose text-white/80">
-              {activeData.subtitle}
-            </motion.p>
-            <button
-              className="px-4 py-2 inline-block font-normal rounded-sm"
-              style={{ backgroundColor: activeData.bgColor }}
-            >
-              Buy and Listen
-            </button>
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={activeData.id}
+                variants={fadeUp(0.2)}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                className="text-sm leading-loose text-white/80"
+              >
+                {activeData.subtitle}
+              </motion.p>
+            </AnimatePresence>
+            <AnimatePresence mode="wait">
+              <UpdateFollower
+                className="w-fit"
+                mouseOptions={{
+                  backgroundColor: activeData.bgColor,
+                  zIndex: 9999,
+                  followSpeed: 0.5,
+                  rotate: -720,
+                  scale: 6,
+                  backgroundElement: (
+                    <div>
+                      <img src={activeData.image} alt="" />
+                    </div>
+                  ),
+                }}
+              >
+                <motion.button
+                  className="px-4 py-2 inline-block font-normal rounded-sm"
+                  style={{ backgroundColor: activeData.bgColor }}
+                >
+                  Buy and Listen
+                </motion.button>
+              </UpdateFollower>
+            </AnimatePresence>
             {/* models list seperator*/}
             <div className="flex items-center justify-center md:justify-start gap-4 !mt-24">
               <div className="w-20 h-[1px] bg-white"></div>
@@ -141,11 +170,26 @@ const Hero = () => {
         </div>
         {/* Hero image */}
         <div className="flex flex-col justify-end items-center">
-          <img
-            className="w-[300px] md:w-[400px] xl:w-[550px]"
-            src={activeData.image}
-            alt=""
-          />
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={activeData.id}
+              variants={fadeUp(0.4)}
+              initial={{ opacity: 0, scale: 0.9, y: 100 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{
+                opacity: 0,
+                scale: 0.9,
+                y: 100,
+                transition: {
+                  duration: 0.2,
+                },
+              }}
+              transition={{ duration: 0.4, delay: 0.2,ease:easeInOut }}
+              className="w-[300px] md:w-[400px] xl:w-[550px]"
+              src={activeData.image}
+              alt=""
+            />
+          </AnimatePresence>
         </div>
         {/* whatsapp icon */}
         <div className="text-3xl text-white fixed bottom-10 right-10 hover:rotate-[360deg] duration-500 z-[9999999] mix-blend-difference">
