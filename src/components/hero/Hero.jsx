@@ -148,21 +148,36 @@ const Hero = () => {
             <div className="grid grid-cols-3 gap-10">
               {data.map((item) => {
                 return (
-                  <div
-                    key={item.id}
-                    onClick={() => handleActiveData(item)}
-                    className="grid grid-cols-2 place-items-center cursor-pointer"
+                  <UpdateFollower
+                    mouseOptions={{
+                      backgroundColor: item.bgColor,
+                      zIndex: 99999,
+                      followSpeed: 0.5,
+                      // rotate:-720,
+                      scale: 5,
+                      text: "View Details",
+                      textFontSize: "3px",
+                      // backgroundElement:(
+                      //   <div><img src={item.image} alt="" /></div>
+                      // )
+                    }}
                   >
-                    <div>
-                      <img src={item.image} alt="" className="w-[200px]" />
+                    <div
+                      key={item.id}
+                      onClick={() => handleActiveData(item)}
+                      className="grid grid-cols-2 place-items-center cursor-pointer"
+                    >
+                      <div>
+                        <img src={item.image} alt="" className="w-[200px]" />
+                      </div>
+                      <div className="space-y-2">
+                        <p className="text-base font-bold">{item.price}</p>
+                        <p className="text-xs font-normal text-nowrap">
+                          {item.modal}
+                        </p>
+                      </div>
                     </div>
-                    <div className="space-y-2">
-                      <p className="text-base font-bold">{item.price}</p>
-                      <p className="text-xs font-normal text-nowrap">
-                        {item.modal}
-                      </p>
-                    </div>
-                  </div>
+                  </UpdateFollower>
                 );
               })}
             </div>
@@ -174,17 +189,17 @@ const Hero = () => {
             <motion.img
               key={activeData.id}
               variants={fadeUp(0.4)}
-              initial={{ opacity: 0, scale: 0.9, y: 100 }}
+              initial={{ opacity: 0, scale: 0.6, y: 100 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{
                 opacity: 0,
-                scale: 0.9,
+                scale: 0.6,
                 y: 100,
                 transition: {
                   duration: 0.2,
                 },
               }}
-              transition={{ duration: 0.4, delay: 0.2,ease:easeInOut }}
+              transition={{ duration: 0.4, delay: 0.2, ease: easeInOut }}
               className="w-[300px] md:w-[400px] xl:w-[550px]"
               src={activeData.image}
               alt=""
