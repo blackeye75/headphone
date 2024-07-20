@@ -3,7 +3,7 @@ import { MdMenu } from "react-icons/md";
 import { SlEarphones } from "react-icons/sl";
 import { UpdateFollower } from "react-mouse-follower";
 import { motion } from "framer-motion";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo2.png";
 
 const Navbar = () => {
   const NavbarMenu = [
