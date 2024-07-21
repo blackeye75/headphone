@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/hero/Hero";
 import Services from "./components/services/Services";
+import Banner from "./components/Banner/Banner";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       >
         <Services />
       </UpdateFollower>
+      <Banner/>
     </main>
   );
 }
