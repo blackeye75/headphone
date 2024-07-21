@@ -74,7 +74,7 @@ const Hero = () => {
     setActiveData(data);
   };
   return (
-    <section className="bg-brandDark text-white font-varela">
+    <section className="bg-brandDark text-white font-varela ">
       <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[700px]">
         {/* brand info */}
         <div className="flex flex-col justify-center py-14 md:py-0 xl:max-w-[500px] ">
@@ -116,7 +116,7 @@ const Hero = () => {
             </AnimatePresence>
             <AnimatePresence mode="wait">
               <UpdateFollower
-                className="w-fit"
+                className="w-fit m-auto md:m-0"
                 mouseOptions={{
                   backgroundColor: activeData.bgColor,
                   zIndex: 9999,
@@ -131,7 +131,7 @@ const Hero = () => {
                 }}
               >
                 <motion.button
-                  className="px-4 py-2 inline-block font-normal rounded-sm"
+                  className="px-4 py-2 inline-block font-normal   rounded-sm"
                   style={{ backgroundColor: activeData.bgColor }}
                 >
                   Buy and Listen
