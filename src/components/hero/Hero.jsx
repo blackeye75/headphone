@@ -190,11 +190,11 @@ const Hero = () => {
             <motion.img
               key={activeData.id}
               variants={fadeUp(0.4)}
-              initial={{ opacity: 0, scale: 0.6, y: 100 }}
+              initial={{ opacity: 0, scale: 0.9, y: 100 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{
                 opacity: 0,
-                scale: 0.6,
+                scale: 0.9,
                 y: 100,
                 transition: {
                   duration: 0.2,

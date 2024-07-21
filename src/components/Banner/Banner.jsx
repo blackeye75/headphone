@@ -32,7 +32,7 @@ const Banner = () => {
               The Latest Headphone with Latest Technology.
             </motion.h1>
             <motion.p
-              variants={fadeUp(0.9)}
+              variants={fadeUp(0.6)}
               initial="hidden"
               whileInView="show"
             >
